@@ -8,14 +8,20 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="app/app.css">
-    <link rel="stylesheet" href="ext-modules/psFramework/psFramework.css">
+    <link rel="stylesheet" href="ext-modules/psMenu/psMenu.css"/>
+    <link rel="stylesheet" href="ext-modules/psFramework/psFramework.css"/>
 
     <script src="Scripts/jquery-3.1.1.min.js" ></script>
     <script src="Scripts/angular.min.js"></script>
 
 
     <script src="ext-modules/psMenu/psMenuModule.js"></script>
+    <script src="ext-modules/psMenu/psMenuController.js"></script>
+    <script src="ext-modules/psMenu/psMenuDirective.js"></script>
+    <script src="ext-modules/psMenu/psMenuItemDirective.js"></script>
+
     <script src="ext-modules/psDashboard/psDashboardModule.js"></script>
+
     <script src="ext-modules/psFramework/psFrameworkModule.js"></script>
     <script src="ext-modules/psFramework/psFrameworkController.js"></script>
     <script src="ext-modules/psFramework/psFrameworkDirective.js"></script>
@@ -28,6 +34,12 @@
     <ps-framework title="Whitewater Adventures"
                     subtitle = "Administrative Application"
                     icon-file="images/lucio.jpg">
+
+        <ps-menu>
+            <ps-menu-item label="Dashboard" icon="fa-dashboard" route="dashboard"></ps-menu-item>
+            <ps-menu-item label="Location" icon="fa-location-arrow" route="location"></ps-menu-item>
+            <ps-menu-item label="Raft Guides" icon="fa-user" route="guides"></ps-menu-item>
+        </ps-menu>
 
     </ps-framework>
 </body>
