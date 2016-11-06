@@ -1,19 +1,22 @@
-/**
- * Created by anton on 10/29/16.
- */
-"use strict"
+﻿"use strict";
 
 angular.module("psFramework").controller("psFrameworkController",
-    ['$scope', '$rootScope', '$window', '$timeout',
-        function ($scope, $rootScope, $window, $timeout) {
+    ['$scope', '$window', '$timeout', '$rootScope', '$location',
+        function ($scope, $window, $timeout, $rootScope, $location) {
 
             $scope.isMenuVisible = true;
             $scope.isMenuButtonVisible = true;
+            $scope.isMenuVertical = true;
 
             $scope.$on('ps-menu-item-selected-event', function (evt, data) {
                 $scope.routeString = data.route;
+                $location.path(data.route);
                 checkWidth();
                 broadcastMenuState();
+            });
+
+            $scope.$on('ps-menu-orientation-changed-event', function (evt, data) {
+                $scope.isMenuVertical = data.isMenuVertical;
             });
 
             $($window).on('resize.psFramework', function () {
@@ -22,14 +25,13 @@ angular.module("psFramework").controller("psFrameworkController",
                     broadcastMenuState();
                 });
             });
-
             $scope.$on("$destroy", function () {
-                $($window).off("resize.psFramework"); //remove the hand
+                $($window).off("resize.psFramework"); // remove the handler added earlier
             });
 
             var checkWidth = function () {
-                var width = $($window).innerWidth();
-                $scope.isMenuVisible = (width > 768);
+                var width = Math.max($($window).width(), $window.innerWidth);
+                $scope.isMenuVisible = (width >= 768);
                 $scope.isMenuButtonVisible = !$scope.isMenuVisible;
             };
 
@@ -42,12 +44,15 @@ angular.module("psFramework").controller("psFrameworkController",
             var broadcastMenuState = function () {
                 $rootScope.$broadcast('ps-menu-show',
                     {
-                        show: $scope.isMenuVisible
+                        show: $scope.isMenuVisible,
+                        isVertical: $scope.isMenuVertical,
+                        allowHorizontalToggle: !$scope.isMenuButtonVisible
                     });
             };
 
             $timeout(function () {
-                checkWidth()
+                checkWidth();
             }, 0);
+
         }
     ]);

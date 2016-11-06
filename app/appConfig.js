@@ -1,10 +1,10 @@
-/**
- * Created by anton on 10/29/16.
- */
+﻿"use strict";
+
 angular.module('app').config(function ($provide) {
-    $provide.decorator(("$exceptionHandler", ["$delegate", function ($delegate) {
+    $provide.decorator("$exceptionHandler", ["$delegate", function ($delegate) {
         return function (exception, cause) {
-            $delegate(exception, cause)
-        }
-    }]))
-})
+            $delegate(exception, cause);
+            alert(exception.message);
+        };
+    }]);
+});

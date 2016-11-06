@@ -1,6 +1,3 @@
-/**
- * Created by anton on 10/29/16.
- */
-"use strict";
+﻿"use strict";
 
 angular.module("psFramework", ["psMenu", "psDashboard"]);
