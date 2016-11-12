@@ -1,0 +1,27 @@
+{
+  "name": "Framework",
+  "version": "1.0.0",
+  "description": "Repo for PS Course https://app.pluralsight.com/player?course=building-spa-framework-angularjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abc516/AngularSPAFramework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abc516/AngularSPAFramework/issues"
+  },
+  "homepage": "https://github.com/abc516/AngularSPAFramework#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-strip-line": "0.0.1"
+  }
+}

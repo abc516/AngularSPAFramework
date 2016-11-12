@@ -18,17 +18,18 @@
         </div>
 
         <div class="ps-right-side-controls col-sm-6">
-            <div>
-                <button class="btn btn-primary">Button 1</button>
-                <button class="btn btn-success">Button 2</button>
-                <button class="btn btn-warning">Button 3</button>
-            </div>
+            <ps-user-profile-small></ps-user-profile-small>
         </div>
     </div>
 </div>
 
+<div class="ps-menu-area"
+     ng-show="isMenuVisible"
+     ng-class="{'ps-menu-area-vertical': isMenuVertical, 'ps-menu-area-horizon': !isMenuVertical}">
+    <ps-user-profile></ps-user-profile>
+    <ng-transclude></ng-transclude>
+</div>
 
-<ng-transclude></ng-transclude>
 
 <div ng-view class="ps-view"
         ng-class="{'ps-view-full-width': !isMenuVertical || !isMenuVisible}">
